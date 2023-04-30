@@ -6,7 +6,7 @@
 #    By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 15:43:06 by dioda-si          #+#    #+#              #
-#    Updated: 2023/04/29 15:43:39 by dioda-si         ###   ########.fr        #
+#    Updated: 2023/04/29 20:54:21 by dioda-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
-run1:
-	./megaphone "shhhhh... I think the students are asleep..."
-
-run2:
-	./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-
-run3:
-	./megaphone
+run:
+	./phonebnook
 
 .PHONY: all clean fclean re run

@@ -6,7 +6,7 @@
 #    By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 15:10:53 by dioda-si          #+#    #+#              #
-#    Updated: 2023/04/29 15:11:32 by dioda-si         ###   ########.fr        #
+#    Updated: 2023/04/29 20:54:37 by dioda-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,4 +41,4 @@ run2:
 run3:
 	./megaphone
 
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re run1 run2 run3
