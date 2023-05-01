@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/30 12:30:04 by dioda-si          #+#    #+#             */
-/*   Updated: 2023/05/01 11:26:52 by dioda-si         ###   ########.fr       */
+/*   Created: 2023/05/01 11:29:44 by dioda-si          #+#    #+#             */
+/*   Updated: 2023/05/01 14:15:19 by dioda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Phonebook.hpp"
 
-# include "Contact.hpp"
-
-class Phonebook
+int	main(void)
 {
-	private:
-		Contact	_phonebook[8];
-		int	_index;
-	public:
-		Phonebook(void);
-		~Phonebook(void);
-		void	add(void);
-		void	search(char *s);
-		void	exit(int option);
-};
+	Contact a1;
 
-#endif
+	a1.setFirstName("joao");
+	std::cout << "Você cadastrou o " << a1.getFirstName() << std::endl;
+	return (0);
+}
