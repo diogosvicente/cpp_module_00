@@ -6,13 +6,13 @@
 #    By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 15:43:06 by dioda-si          #+#    #+#              #
-#    Updated: 2023/05/01 12:01:07 by dioda-si         ###   ########.fr        #
+#    Updated: 2023/05/02 00:15:02 by dioda-si         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= g++
 RM		= rm -f
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
 SRC		= Contact.cpp Phonebook.cpp main.cpp
 NAME		= phonebook
@@ -32,7 +32,7 @@ fclean: clean
 
 re: fclean $(NAME)
 
-run:
+run: all
 	@./phonebook
 
 .PHONY: all clean fclean re run

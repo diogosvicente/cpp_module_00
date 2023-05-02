@@ -6,7 +6,7 @@
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:30:04 by dioda-si          #+#    #+#             */
-/*   Updated: 2023/05/01 11:26:52 by dioda-si         ###   ########.fr       */
+/*   Updated: 2023/05/01 23:20:28 by dioda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Phonebook
 	public:
 		Phonebook(void);
 		~Phonebook(void);
+		std::string	requiredField(std::string label);
 		void	add(void);
 		void	search(char *s);
 		void	exit(int option);
