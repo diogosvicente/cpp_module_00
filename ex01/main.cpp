@@ -6,44 +6,32 @@
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:29:44 by dioda-si          #+#    #+#             */
-/*   Updated: 2023/05/02 00:12:45 by dioda-si         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:42:07 by dioda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
-void	mainMenu(Phonebook p1)
-{
-	int op = 0;
-	while (op != 3)
-	{
-		std::cout << "MENU" << std::endl;
-		std::cout << "1 - Add" << std::endl;
-		std::cout << "2 - Search" << std::endl;
-		std::cout << "3 - Exit" << std::endl;
-		std::cout << "Chose an option: ";
-		std::cin >> op;
-
-		switch (op)
-		{
-			case 1:
-				p1.add();
-				break;
-			case 2:
-				std::cout << "Search (in construction)" << std::endl;
-				break;
-			case 3:
-				break;
-			default:
-				std::cout << "Invalid option!" << std::endl;
-				break;
-		}
-	}
-}
-
 int	main(void)
 {
 	Phonebook p1;
-	mainMenu(p1);	
+
+	std::string	input;
+	while(input != "EXIT")
+	{
+		std::cout << std::endl << "Type an option (ADD, SEARCH or EXIT): ";
+		std::getline (std::cin, input);
+		if (input == "ADD")
+			p1.add();
+		else if (input == "SEARCH")
+			p1.search();
+		else if(input == "EXIT")
+			return(0);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return (0);
+		}
+	}
 	return (0);
 }
