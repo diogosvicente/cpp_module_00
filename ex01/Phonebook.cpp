@@ -6,7 +6,7 @@
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 14:12:31 by dioda-si          #+#    #+#             */
-/*   Updated: 2023/05/04 20:42:54 by dioda-si         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:15:25 by dioda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,6 @@ std::string	Phonebook::requiredField(std::string label)
 	return(input);
 }
 
-void	Phonebook::saveContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret)
-{
-	this->_phonebook[this->_index].setFirstName(firstName);
-	this->_phonebook[this->_index].setLastName(lastName);
-	this->_phonebook[this->_index].setNickname(nickname);
-	this->_phonebook[this->_index].setPhoneNumber(phoneNumber);
-	this->_phonebook[this->_index].setDarkestSecret(darkestSecret);
-
-	std::cout << GREEN << "[" << this->_index+1 << "] " <<  ULINE <<
-		this->_phonebook[this->_index].getFirstName() << " " << \
-		this->_phonebook[this->_index].getLastName() << RESET << \
-		GREEN << " successfully added to the Phonebook!" << RESET << std::endl;
-	this->_index++;
-}
-
 void	Phonebook::add(void)
 {
 	std::string	firstName;
@@ -93,61 +78,31 @@ void	Phonebook::add(void)
 		saveContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
 }
 
-void	Phonebook::details(int id)
+void	Phonebook::saveContact(std::string firstName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret)
 {
-	std::cout << std::endl << ULINE << "Contact details:" << RESET << std::endl;
-	std::cout << "First Name: " << this->_phonebook[id].getFirstName() << std::endl;
-	std::cout << "Last Name: " << this->_phonebook[id].getLastName() << std::endl;
-	std::cout << "Nickname: " << this->_phonebook[id].getNickname() << std::endl;
-	std::cout << "Phone Number: " << this->_phonebook[id].getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret: " << this->_phonebook[id].getDarkestSecret() << std::endl;
-}
+	this->_phonebook[this->_index].setFirstName(firstName);
+	this->_phonebook[this->_index].setLastName(lastName);
+	this->_phonebook[this->_index].setNickname(nickname);
+	this->_phonebook[this->_index].setPhoneNumber(phoneNumber);
+	this->_phonebook[this->_index].setDarkestSecret(darkestSecret);
 
-int		ft_strlen(std::string s)
-{
-	int	count;
-
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
-
-void	align(std::string content)
-{
-	int	size;
-	int	i;
-	int	copySize;
-
-	size = ft_strlen(content);
-	copySize = size;
-	i = 0;
-	if (size > 10)
-	{
-		while(i < 9)
-		{
-			std::cout << content[i];
-			i++;
-		}
-		std::cout << ".";
-	}
-	/*else if (size == 10)
-		std::cout << content;
-	else if (size < 10)
-	{
-		while(10-copySize > 0)
-		{
-			std::cout << " ";
-			copySize--;
-		}
-		while(content[i])
-			std::cout << content[i++];
-	}*/
+	std::cout << GREEN << "[" << this->_index+1 << "] " <<  ULINE <<
+		this->_phonebook[this->_index].getFirstName() << " " << \
+		this->_phonebook[this->_index].getLastName() << RESET << \
+		GREEN << " successfully added to the Phonebook!" << RESET << std::endl;
+	this->_index++;
 }
 
 void	Phonebook::search()
 {
-	std::cout << std::endl << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	if (this->_phonebook[0].getFirstName().empty())
+	{
+		std::cout << RED << "The phonetbook is empty!" << RESET << std::endl;
+		return;
+	}
+	std::cout << " ___________________________________________ " << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (this->_phonebook[i].getFirstName().empty())
@@ -162,3 +117,29 @@ void	Phonebook::search()
 		std::cout << std::endl;
 	}
 }
+
+void	align(std::string content)
+{
+	int	size;
+	int	i;
+
+	size = content.length();
+	i = 0;
+	if (size > 10)
+		std::cout << content.substr(0,9) << ".";
+	else if (size == 10)
+		std::cout << content;
+	else
+		std::cout << std::setw(10) << content;
+}
+
+void	Phonebook::details(int id)
+{
+	std::cout << std::endl << ULINE << "Contact details:" << RESET << std::endl;
+	std::cout << "First Name: " << this->_phonebook[id].getFirstName() << std::endl;
+	std::cout << "Last Name: " << this->_phonebook[id].getLastName() << std::endl;
+	std::cout << "Nickname: " << this->_phonebook[id].getNickname() << std::endl;
+	std::cout << "Phone Number: " << this->_phonebook[id].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << this->_phonebook[id].getDarkestSecret() << std::endl;
+}
+

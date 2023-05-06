@@ -6,7 +6,7 @@
 /*   By: dioda-si <dioda-si@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:08:42 by dioda-si          #+#    #+#             */
-/*   Updated: 2023/05/01 20:46:04 by dioda-si         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:11:46 by dioda-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 class Contact
 {
